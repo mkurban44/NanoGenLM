@@ -1,6 +1,6 @@
 # NanoGenLM
 
-**A paired-size benchmark for alloy nanoparticle stability across material classes**
+**NanoGenLM: A paired-size benchmark for alloy nanoparticle stability across material classes**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20112995.svg)](https://doi.org/10.5281/zenodo.20112995)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -39,40 +39,25 @@ ML Dataset (2,346 NPs, 1,173 compositions)
 ```
 NanoGenLM/
 ├── scripts/
-│   ├── 01_generate_unitcells.py      # Generate unit cells from prototypes
-│   ├── 01b_download_mp.py            # Download structures from Materials Project
-│   ├── 02_bulk_relax.py              # Bulk DFTB+ relaxation
-│   ├── 03_carve_nanoparticles.py     # Spherical NP carving with Atomsk
-│   ├── 04_relax_nanoparticles.py     # NP DFTB+ relaxation
-│   ├── 05_collect_dataset.py         # Collect results into ML dataset
-│   ├── 06_plot_all_figures.py        # Main text figures (Fig 3–8)
-│   ├── 06_plot_fig1_fig2_final.py    # Pipeline + periodic table (Fig 1–2)
-│   ├── 07_plot_SI_figures.py         # Supplementary figures (S1–S5)
-│   └── 08_plot_ML_figures.py         # ML analysis figures (Fig 9–10)
-├── dataset/
-│   ├── nature_comm_dataset.csv       # Paired dataset (R=5 + R=6)
-│   ├── neurips_dataset.csv           # Full dataset (all passed)
-│   ├── nature_comm_paired.db         # ASE database (paired)
-│   ├── neurips_all.db                # ASE database (all)
-│   └── xyz_files/                    # Individual XYZ files
-├── unit_cells/                       # Prototype-generated CIFs
-├── unit_cells_mp/                    # MP + prototype CIFs (merged)
-├── unit_cells_relaxed/               # DFTB+-relaxed bulk CIFs
-├── nanoparticles/                    # Carved + relaxed NP structures
-│   ├── perovskite/
-│   ├── heusler/
-│   └── hydride/
-├── figures/                          # Main text figures
-├── figures-SI/                       # Supplementary figures
-├── figures-ML/                       # ML analysis figures
-├── compositions_master.csv           # Initial composition list
-├── compositions_master_v2.csv        # Updated with MP sources
-├── bulk_relax_results_v2.csv         # Bulk relaxation results
-├── np_relax_results.csv              # NP relaxation results
-├── carve_results.csv                 # Carving statistics
-├── LICENSE                           # MIT License
-└── README.md                         # This file
+│   ├── 01_generate_unitcells.py
+│   ├── 01b_download_mp.py
+│   ├── 02_bulk_relax.py
+│   ├── 03_carve_nanoparticles.py
+│   ├── 04_relax_nanoparticles.py
+│   ├── 05_collect_dataset.py
+│   ├── 06_plot_all_figures.py
+│   ├── 06_plot_fig1_fig2_final.py
+│   ├── 07_plot_SI_figures.py
+│   └── 08_plot_ML_figures.py
+├── bulk_relax_results_v2.csv
+├── carve_results.csv
+├── compositions_master.csv
+├── compositions_master_v2.csv
+├── np_relax_results.csv
+├── LICENSE
+└── README.md
 ```
+The full dataset, including relaxed structures, ASE databases, XYZ files, and archived nanoparticle/unit-cell files, is available on Zenodo: https://doi.org/10.5281/zenodo.20112995.
 
 ## Requirements
 
@@ -137,7 +122,7 @@ python scripts/08_plot_ML_figures.py --base .
 
 ## Dataset Description
 
-### Nature Communications dataset (`nature_comm_dataset.csv`)
+### Final paired dataset (`nature_comm_dataset.csv`)
 - **2,346 records** (1,173 compositions × 2 radii)
 - Only compositions where both R = 5 and R = 6 Å relaxation succeeded
 - Columns include: formula, class, energy, structural descriptors, source, confidence
